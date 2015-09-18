@@ -1,0 +1,25 @@
+{
+  "name": "hapi-register",
+  "version": "1.0.0",
+  "description": "Registration plugin for hapi.js apps/apis",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nelsonic/hapi-register.git"
+  },
+  "keywords": [
+    "registration",
+    "register",
+    "simple",
+    "email"
+  ],
+  "author": "the usual suspects",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/nelsonic/hapi-register/issues"
+  },
+  "homepage": "https://github.com/nelsonic/hapi-register#readme"
+}
