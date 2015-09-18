@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/nelsonic/hapi-register/issues"
   },
-  "homepage": "https://github.com/nelsonic/hapi-register#readme"
+  "homepage": "https://github.com/nelsonic/hapi-register#readme",
+  "devDependencies": {
+    "hapi": "^10.0.0"
+  }
 }
