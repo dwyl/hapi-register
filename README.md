@@ -1,5 +1,8 @@
 # hapi-register
 
+[![Dependency Status](https://david-dm.org/nelsonic/hapi-register.svg)](https://david-dm.org/nelsonic/hapi-register)
+[![devDependency Status](https://david-dm.org/nelsonic/hapi-register/dev-status.svg)](https://david-dm.org/nelsonic/hapi-register#info=devDependencies)
+
 Simplify (*email*) registration for your Hapi.js based web Application or API
 
 ## Why?

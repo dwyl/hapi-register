@@ -24,7 +24,9 @@
   "homepage": "https://github.com/nelsonic/hapi-register#readme",
   "devDependencies": {
     "hapi": "^10.0.0",
-    "joi": "^6.7.1",
     "tape": "^4.2.0"
+  },
+  "dependencies": {
+    "joi": "^6.7.1"
   }
 }
