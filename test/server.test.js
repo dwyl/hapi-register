@@ -5,8 +5,10 @@ server.connection({ port: 8000 });
 // define which fields we want to validate for
 var Joi    = require('joi');
 var fields = {
-
-};
+  email     : Joi.string().email().required(),
+  firstname : Joi.string(),
+  password  : Joi.string().required().min(6) // minimum length 6 characters
+}
 var opts   = {'test':'that'};
 
 // load the plugin

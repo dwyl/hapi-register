@@ -4,7 +4,8 @@
   "description": "Registration plugin for hapi.js apps/apis",
   "main": "index.js",
   "scripts": {
-    "test": "tape"
+    "test":"./node_modules/tape/bin/tape ./test/*.js",
+    "coverage": "istanbul cover ./node_modules/tape/bin/tape ./test/*.js  | node_modules/tap-spec/bin/cmd.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   "homepage": "https://github.com/nelsonic/hapi-register#readme",
   "devDependencies": {
     "hapi": "^10.0.0",
+    "istanbul": "^0.3.20",
     "tape": "^4.2.0"
   },
   "dependencies": {
