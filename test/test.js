@@ -1,5 +1,8 @@
 var test   = require('tape');
 var server = require('./server.test.js');
+// we display the file (name) in each test name
+var dir   = __dirname.split('/')[__dirname.split('/').length-1];
+var file  = dir + __filename.replace(__dirname, '');
 
 var email  = 'dwyl.test+auth_basic' +Math.random()+'@gmail.com';
 
@@ -8,7 +11,10 @@ var person = {
   "password" : "PinkFluffyUnicorns"
 }
 
-test("request to GET / should not require session token", function(t) {
+
+
+
+test("register with brand new email and password", function(t) {
   var options = {
     method: "POST",
     url: "/register",
