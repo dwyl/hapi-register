@@ -5,14 +5,59 @@ Simplify (*email*) registration for your Hapi.js based web Application or API
 ## Why?
 
 *Many* people still prefer to use their email address when registering
-to use a service - as opposed to logging in with their Google account
-for example - for a *number* of reasons.
-This plugin/module helps simplify that process.
+to use an app or service - as opposed to logging in with their Google account
+for example.
+This plugin/module helps *simplify* that process.
 
 ## What?
 
 ***Simple, Tested & Maintained*** email (+ password) registration you can add
 to a Hapi.js app in *minutes*.
+
+
+## How? (*Usage*)
+
+### Install from NPM
+
+First install the plugin from `npm` and save it as a *dependency*:
+
+```sh
+npm install hapi-register --save
+```
+
+### Specify Your *Required* Fields
+
+Now in your code:
+
+```js
+var Joi = require('joi');
+var fields = {
+  email     : Joi.string().email().required(),
+  firstname : Joi.string(),
+  password  : Joi.string().required().min(6) // minimum length 6 characters
+}
+
+```
+
+### Fields
+
+**hapi-register** has a few *presets* for fields
+
+```js
+var Joi = require('joi');
+module.exports = {
+  payload: {
+    person    : Joi.string(), // unique id
+    email     : Joi.string().email().required(),
+    password  : Joi.string().required().min(4),
+    firstname : Joi.string(),
+    lastname  : Joi.string(),
+    created   : Joi.forbidden() // don't allow people to set this!
+  }
+}
+```
+
+## Exapmles
 
 
 #### Mode 1 - Require *Just Email* Address
@@ -21,20 +66,6 @@ If people *only* have to type in their email address to register their *interest
 
 
 #### Mode 2 - Require an *Email and Password*
-
-
-
-## How?
-
-### Usage
-
-You are invited to *inspect* the code in `/lib`
-
-### Install from NPM
-
-
-### Specify Your *Required* Fields
-
 
 
 
@@ -81,3 +112,7 @@ explain a usability issue to a non-technical person.
 + ***Time to Wow*** - a *detailed* explanation on why we should
 *minimise* the "*friction*" to trying your product/service. see:
 http://www.forentrepreneurs.com/time-to-wow/
+
+Want to create your own Hapi Plugins?
+watch: https://www.joyent.com/developers/videos/node-js-at-walmart-plugins-as-the-center-of-team-collaboration  
+and read: http://hapijs.com/tutorials/plugins
