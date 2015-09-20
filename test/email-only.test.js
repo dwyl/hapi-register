@@ -1,11 +1,26 @@
 var test   = require('tape');
-var server = require('./server.test.js');
 // we display the file (name) in each test name
 var dir   = __dirname.split('/')[__dirname.split('/').length-1];
 var file  = dir + __filename.replace(__dirname, '') + ' -> ';
+var server = require('./generic.server.js');
+
+// define which fields we want to validate for
+var Joi    = require('joi');
+var fields = {
+  email     : Joi.string().email().required(),
+  // firstname : Joi.string(),
+  // password  : Joi.string().required().min(6) // minimum length 6 characters
+}
+var opts   = {'test':'that', fields:fields};
+
+// load the plugin with the specific fields we want to validate against
+server.register([{ register: require('../lib'), options:opts }], function (err) {
+  if (err) { console.error('Failed to load plugin:', err); }
+});
 
 var person = {
-  "email" : 'dwyl.test+auth_basic' +Math.random()+'@gmail.com'
+  "email" : 'dwyl.test+auth_basic' +Math.random()+'@gmail.com',
+  // "password":"EverythingIsAwesome"
 }
 
 test(file+"register with email and password", function(t) {
@@ -16,8 +31,8 @@ test(file+"register with email and password", function(t) {
   };
 
   server.inject(options, function(response) {
-    console.log(response.reply)
-    t.equal(response.statusCode, 200, "Base URL Does not Require ");
+    console.log(response)
+    t.equal(response.statusCode, 200, "Register worked with email and password");
     server.stop(function(){ t.end() });
   });
 });
