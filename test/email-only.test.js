@@ -2,8 +2,10 @@ var test   = require('tape');
 // we display the file (name) in each test name
 var dir   = __dirname.split('/')[__dirname.split('/').length-1];
 var file  = dir + __filename.replace(__dirname, '') + ' -> ';
-var server = require('./generic.server.js');
 
+var Hapi   = require('hapi');     // https://github.com/nelsonic/learn-hapi
+var server = new Hapi.Server({ debug: false })
+server.connection({ port: 8000 });
 // define which fields we want to validate for
 var Joi    = require('joi');
 var fields = {
@@ -31,8 +33,8 @@ test(file+"register with email and password", function(t) {
   };
 
   server.inject(options, function(response) {
-    console.log(response)
-    t.equal(response.statusCode, 200, "Register worked with email and password");
+    // console.log(response)
+    t.equal(response.statusCode, 200, "Register worked with email ONLY");
     server.stop(function(){ t.end() });
   });
 });

@@ -35,7 +35,7 @@ test(file+"register with email and password", function(t) {
   };
 
   server.inject(options, function(response) {
-    console.log(response)
+    // console.log(response)
     t.equal(response.statusCode, 200, "Register worked with email and password");
     server.stop(function(){ t.end() });
   });
