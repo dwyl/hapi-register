@@ -1,5 +1,8 @@
 # hapi-register
 
+[![Build Status](https://travis-ci.org/nelsonic/hapi-register.svg?branch=master)](https://travis-ci.org/nelsonic/hapi-register)
+[![Code Climate](https://codeclimate.com/github/nelsonic/hapi-register/badges/gpa.svg)](https://codeclimate.com/github/nelsonic/hapi-register)
+[![codecov.io](http://codecov.io/github/nelsonic/hapi-register/coverage.svg?branch=master)](http://codecov.io/github/nelsonic/hapi-register?branch=master)
 [![Dependency Status](https://david-dm.org/nelsonic/hapi-register.svg)](https://david-dm.org/nelsonic/hapi-register)
 [![devDependency Status](https://david-dm.org/nelsonic/hapi-register/dev-status.svg)](https://david-dm.org/nelsonic/hapi-register#info=devDependencies)
 

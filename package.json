@@ -4,8 +4,8 @@
   "description": "Registration plugin for hapi.js apps/apis",
   "main": "index.js",
   "scripts": {
-    "test":"./node_modules/tape/bin/tape ./test/*.js",
-    "coverage": "istanbul cover ./node_modules/tape/bin/tape ./test/*.js  | node_modules/tap-spec/bin/cmd.js"
+    "fast": "./node_modules/tape/bin/tape ./test/*.js",
+    "test": "istanbul cover ./node_modules/tape/bin/tape ./test/*.js  | node_modules/tap-spec/bin/cmd.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
   "devDependencies": {
     "hapi": "^10.0.0",
     "istanbul": "^0.3.20",
+    "tap-spec": "^4.1.0",
     "tape": "^4.2.0"
   },
   "dependencies": {
