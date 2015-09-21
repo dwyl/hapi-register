@@ -26,6 +26,7 @@
   "devDependencies": {
     "hapi": "^10.0.0",
     "istanbul": "^0.3.20",
+    "level": "^1.3.0",
     "tap-spec": "^4.1.0",
     "tape": "^4.2.0"
   },

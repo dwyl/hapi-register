@@ -119,6 +119,5 @@ explain a usability issue to a non-technical person.
 *minimise* the "*friction*" to trying your product/service. see:
 http://www.forentrepreneurs.com/time-to-wow/
 
-Want to create your own Hapi Plugins?
-watch: https://www.joyent.com/developers/videos/node-js-at-walmart-plugins-as-the-center-of-team-collaboration  
-and read: http://hapijs.com/tutorials/plugins
+Want to create your *own* Hapi Plugins?
+read: http://hapijs.com/tutorials/plugins
