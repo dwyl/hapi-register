@@ -3,8 +3,8 @@ var test   = require('tape');
 var dir   = __dirname.split('/')[__dirname.split('/').length-1];
 var file  = dir + __filename.replace(__dirname, '') + ' -> ';
 
-/****************************** SETUP HAPI SERVER ************************/
-var Hapi   = require('hapi');     // https://github.com/nelsonic/learn-hapi
+/************************ SETUP HAPI SERVER ***************************/
+var Hapi   = require('hapi');  // https://github.com/nelsonic/learn-hapi
 var server = new Hapi.Server({ debug: false })
 server.connection({ port: 8000 });
 
@@ -22,12 +22,43 @@ server.register([{ register: require('../lib'), options:opts }], function (err) 
   if (err) { console.error('Failed to load plugin:', err); }
 });
 
+/************************* TESTS ***************************/
+test(file+'Attempt to submit a registration without password', function(t){
+  var options = {
+    method: "POST",
+    url: "/register",
+    payload : { email:'this@here.net' }
+  };
+
+  server.inject(options, function(response) {
+    // console.log(response)
+    var code = response.statusCode
+    t.equal(code, 400, 'Register without password fails -> '+code);
+    server.stop(function(){ t.end() });
+  });
+})
+
+test(file+'Attempt to register with unrecognised field', function(t){
+  var options = {
+    method: "POST",
+    url: "/register",
+    payload : { email:'this@here.net', password: 'pass4567', name:'Emit' }
+  };
+
+  server.inject(options, function(response) {
+    // console.log(response)
+    var code = response.statusCode
+    t.equal(code, 400, 'Register with unknown field fails -> '+code);
+    server.stop(function(){ t.end() });
+  });
+})
+
 var person = {
   "email" : 'dwyl.test+auth_basic' +Math.random()+'@gmail.com',
   "password":"EverythingIsAwesome"
 }
 
-test(file+"register with email and password", function(t) {
+test(file+"Successfully register with email and password", function(t) {
   var options = {
     method: "POST",
     url: "/register",
