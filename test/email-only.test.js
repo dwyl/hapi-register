@@ -7,15 +7,9 @@ var file  = dir + __filename.replace(__dirname, '') + ' -> ';
 var Hapi   = require('hapi');     // https://github.com/nelsonic/learn-hapi
 var server = new Hapi.Server({ debug: false })
 server.connection({ port: 8000 });
-// define which fields we want to validate for
-var Joi    = require('joi');
-var fields = {
-  email     : Joi.string().email().required(),
-}
-var opts   = {'test':'that', fields:fields};
 
-// load the plugin with the specific fields we want to validate against
-server.register([{ register: require('../lib'), options:opts }], function (err) {
+// load the plugin WITHOUT any options (test defaults)
+server.register({ register: require('../lib')}, function (err) {
   if (err) { console.error('Failed to load plugin:', err); }
 });
 
@@ -34,8 +28,7 @@ test(file+"Attempt to register with invalid email", function(t) {
 });
 
 var person = {
-  "email" : 'dwyl.test+auth_basic' +Math.random()+'@gmail.com',
-  // "password":"EverythingIsAwesome"
+  "email" : 'dwyl.test+register@gmail.com'
 }
 
 test(file+"register with email", function(t) {
@@ -46,7 +39,7 @@ test(file+"register with email", function(t) {
   };
 
   server.inject(options, function(response) {
-    // console.log(response)
+    console.log(response)
     t.equal(response.statusCode, 200, "Register worked with email ONLY");
     server.stop(function(){ t.end() });
   });

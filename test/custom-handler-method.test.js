@@ -27,7 +27,7 @@ function custom_handler (request, reply) {
     return reply(value);
   });
 }
-var opts   = {handler:custom_handler, fields:fields};
+var opts = {handler:custom_handler, fields:fields};
 
 // load the plugin with the specific fields we want to validate against
 server.register([{ register: require('../lib'), options:opts }], function (err) {
