@@ -33,34 +33,30 @@ npm install hapi-register --save
 
 ### Specify Your *Required* Fields
 
-Now in your code:
+In your code, define the fields you want people to register with.
 
 ```js
 var Joi = require('joi');
-var fields = {
+var custom_fields = {
   email     : Joi.string().email().required(),
   firstname : Joi.string(),
   password  : Joi.string().required().min(6) // minimum length 6 characters
 }
-
+var opts = { fields: custom_fields };
 ```
 
-### Fields
+### Load the plugin into your Server
 
-**hapi-register** has a few *presets* for fields
+**hapi-register**
 
 ```js
-var Joi = require('joi');
-module.exports = {
-  payload: {
-    person    : Joi.string(), // unique id
-    email     : Joi.string().email().required(),
-    password  : Joi.string().required().min(4),
-    firstname : Joi.string(),
-    lastname  : Joi.string(),
-    created   : Joi.forbidden() // don't allow people to set this!
-  }
-}
+var Hapi   = require('hapi'); https://github.com/nelsonic/learn-hapi
+var server = new Hapi.Server({ debug: false })
+server.connection({ port: 8000 });
+server.register([{ register: require('hapi-register'), options:opts }], function (err) {
+  if (err) { console.error('Failed to load plugin:', err); }
+});
+
 ```
 
 ## Exapmles
