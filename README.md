@@ -112,17 +112,16 @@ we have prepared a few examples.
 
 ## Examples
 
-
-#### Mode 1 - Register *interest* with *Just Email* Address
-
-If people *only* have to type in their email address to
-register their *interest* in using your app/site its
-the ***lowest possible friction***.
-
-
-#### Mode 2 - Require an *Email and Password*
+The tests for this plugin show simple examples
+of both Register *interest* with *Just Email* Address - the ***lowest possible friction*** -
+( [test/email-only.test.js](https://github.com/nelsonic/hapi-register/blob/master/test/email-only.test.js) )
+and a more *detailed* custom registration handler with more fields
+( [test/custom-handler-method.test.js](https://github.com/nelsonic/hapi-register/blob/master/test/custom-handler-method.test.js) )
 
 
+For a ***fully functional*** example using the **hapi-register**
+plugin to power a site's registration see:
+https://github.com/nelsonic/hapi-register-example
 
 
 # tl;dr
