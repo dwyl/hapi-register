@@ -48,8 +48,7 @@ In your code, define the fields you want people to register with.
 var Joi = require('joi');
 var custom_fields = {
   email     : Joi.string().email().required(),
-  firstname : Joi.string(),
-  password  : Joi.string().required().min(6) // min 6 characters
+  firstname : Joi.string()
 }
 var opts = { fields: custom_fields };       // pass the options when registering the plugin
 ```
@@ -62,12 +61,18 @@ Imagine you are using Redis to store records of people who have registered to us
 
 ```js
 var Boom        = require('boom');
+var bcrypt      = require('bcrypt'); // see: https://github.com/nelsonic/bcrypt
 var redisClient = require('redis-connection')();
 function custom_handler(request, reply){
   redisClient.get(request.payload.email, function (err, reply) {
-    if(err) { // if not already registered, register the person:
-      redisClient.set(request.payload.email, JSON.stringify(request.payload));
-      return reply('Success')
+    if(err) { // error when if not already registered, register the person:
+      bcrypt.genSalt(12, function(err, salt) {
+        bcrypt.hash(req.payload.password, salt, function(err, hash) {
+          request.payload.password = hash; // save the password's hash
+          redisClient.set(request.payload.email, JSON.stringify(request.payload));
+          return reply('Success')
+        }); // end bcrypt.hash
+      }); // end bcrypt.genSalt
     }
     else {
       return reply(Boom.badRequest('Already Registered'));
@@ -96,13 +101,23 @@ server.start(function() {
 });
 ```
 
+### Are we *there* yet?
+
+If all you were doing is building a basic "*alpha*"
+registration form to register people's interest in a
+*potential* product/service, yes, you can ship this!
+
+But if you want to do something more interesting,
+we have prepared a few examples.
 
 ## Examples
 
 
-#### Mode 1 - Require *Just Email* Address
+#### Mode 1 - Register *interest* with *Just Email* Address
 
-If people *only* have to type in their email address to register their *interest* in using your app/site its the lowest possible friction.
+If people *only* have to type in their email address to
+register their *interest* in using your app/site its
+the ***lowest possible friction***.
 
 
 #### Mode 2 - Require an *Email and Password*
@@ -135,13 +150,13 @@ quickly and easily a *possible* (*you can always ask for more detail later, once
 
 At [**dwyl**](https://github.com/dwyl) we have ***two modes*** for letting people register.
 
-The first allows people to enter (*just*) their
+The **first** allows people to enter (*just*) their
 email address to stay *informed* of what we are doing. This is commonly
 referred to as "*registering* ***interest***" in a product/service.
 
-Second we *encourage* people to give us a bit more detail about themselves;
+**Second** we *encourage* people to give us a bit more detail about themselves;
 specifically their `first name` so that we can *address* them *by name*
-when we contact them.
+when we send them updates.
 
 ## Background Reading
 
@@ -153,5 +168,5 @@ explain a usability issue to a non-technical person.
 *minimise* the "*friction*" to trying your product/service. see:
 http://www.forentrepreneurs.com/time-to-wow/
 
-Want to create your *own* Hapi Plugins?
-read: http://hapijs.com/tutorials/plugins
+Want to *modularise* your Hapi app with your
+*own* Hapi Plugins? read: http://hapijs.com/tutorials/plugins
