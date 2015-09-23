@@ -11,14 +11,22 @@ Simplify (*email*) registration for your Hapi.js based web Application or API
 ## Why?
 
 *Many* people still prefer to use their email address when registering
-to use an app or service - as opposed to logging in with their Google account
-for example.
+to use an app or service - as opposed to logging in with their Google (or other) account.
 This plugin/module helps *simplify* that process.
+
+#### Why use a Plugin for something *this* Simple?
+
+Simple answer is: We have tested it. Provide good examples and are committed
+to maintaining it so you don't have to think about it.
+
+Given that you have ***full control*** over what fields
+are accepted/required and how the request gets handled,
+there is *no downside*.
 
 ## What?
 
-***Simple, Tested & Maintained*** email (+ password) registration you can add
-to a Hapi.js app in *minutes*.
+***Simple, Tested & Maintained*** email registration you
+can add, configure and use in your Hapi.js app in *minutes*.
 
 
 ## How? (*Usage*)
@@ -40,14 +48,16 @@ var Joi = require('joi');
 var custom_fields = {
   email     : Joi.string().email().required(),
   firstname : Joi.string(),
-  password  : Joi.string().required().min(6) // minimum length 6 characters
+  password  : Joi.string().required().min(6) // min 6 characters
 }
-var opts = { fields: custom_fields };
+var opts = { fields: custom_fields };       // pass the options when registering the plugin
 ```
 
-### Load the plugin into your Server
 
-**hapi-register**
+
+### Load the `hapi-register` plugin into your server
+
+Load the plugin with the `options` object containing *fields* you need:
 
 ```js
 var Hapi   = require('hapi'); https://github.com/nelsonic/learn-hapi
@@ -57,9 +67,13 @@ server.register([{ register: require('hapi-register'), options:opts }], function
   if (err) { console.error('Failed to load plugin:', err); }
 });
 
+server.start(function(){
+  console.log('Now Visit: http://127.0.0.1:'+server.info.port);
+});
 ```
 
-## Exapmles
+
+## Examples
 
 
 #### Mode 1 - Require *Just Email* Address
