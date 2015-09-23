@@ -39,7 +39,7 @@ First install the plugin from `npm` and save it as a *dependency*:
 npm install hapi-register --save
 ```
 
-### Specify Your *Required* Fields
+### 1. Specify Your *Required* Fields
 
 In your code, define the fields you want people to register with.
 
@@ -53,7 +53,30 @@ var custom_fields = {
 var opts = { fields: custom_fields };       // pass the options when registering the plugin
 ```
 
+### 2. Define your handler function
 
+Your handler function can be what ever you want it to be.
+
+Imagine you are using Redis to store records of people who have registered to use your service:
+
+```js
+var Boom        = require('boom');
+var redisClient = require('redis-connection')();
+function custom_handler(request, reply){
+  redisClient.get(request.payload.email, function (err, reply) {
+    if(err) { // if not already registered, register the person:
+      redisClient.set(request.payload.email, JSON.stringify(request.payload));
+      return reply('Success')
+    }
+    else {
+      return reply(Boom.badRequest('Already Registered'));
+    }
+  });
+}
+// include the custom_handler in your otps object:
+opts.handler = custom_handler;
+```
+> More examples:
 
 ### Load the `hapi-register` plugin into your server
 
