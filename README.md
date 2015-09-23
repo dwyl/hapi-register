@@ -5,6 +5,7 @@
 [![codecov.io](http://codecov.io/github/nelsonic/hapi-register/coverage.svg?branch=master)](http://codecov.io/github/nelsonic/hapi-register?branch=master)
 [![Dependency Status](https://david-dm.org/nelsonic/hapi-register.svg)](https://david-dm.org/nelsonic/hapi-register)
 [![devDependency Status](https://david-dm.org/nelsonic/hapi-register/dev-status.svg)](https://david-dm.org/nelsonic/hapi-register#info=devDependencies)
+[![HitCount](https://hitt.herokuapp.com/nelsonic/hapi-register.svg)](https://github.com/nelsonic/hapi-register)
 
 Simplify (*email*) registration for your Hapi.js based web Application or API
 
@@ -78,7 +79,7 @@ opts.handler = custom_handler;
 ```
 > More examples:
 
-### Load the `hapi-register` plugin into your server
+### 3. Load the `hapi-register` plugin into your server
 
 Load the plugin with the `options` object containing *fields* you need:
 
@@ -90,7 +91,7 @@ server.register([{ register: require('hapi-register'), options:opts }], function
   if (err) { console.error('Failed to load plugin:', err); }
 });
 
-server.start(function(){
+server.start(function() {
   console.log('Now Visit: http://127.0.0.1:'+server.info.port);
 });
 ```
