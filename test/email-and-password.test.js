@@ -31,7 +31,7 @@ test(file+'Attempt to submit a registration without password', function(t){
   };
 
   server.inject(options, function(response) {
-    // console.log(response)
+    // joi returns 400 when auth validation fails.
     var code = response.statusCode
     t.equal(code, 400, 'Register without password fails -> '+code);
     server.stop(function(){ t.end() });
@@ -46,7 +46,7 @@ test(file+'Attempt to register with unrecognised field', function(t){
   };
 
   server.inject(options, function(response) {
-    // console.log(response)
+    // joi returns 400 when auth validation fails.
     var code = response.statusCode
     t.equal(code, 400, 'Register with unknown field fails -> '+code);
     server.stop(function(){ t.end() });
