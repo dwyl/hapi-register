@@ -23,12 +23,12 @@ var db = level(__dirname + '/db');
 function custom_handler (request, reply) {
   // check if a key exists, else import word list:
   db.get(request.payload.email, function (err, value) {
-    console.log(' - - - - - - - - - - - - - - - - - - ')
-    console.log(err, value)
-    console.log(' - - - - - - - - - - - - - - - - - - ')
+    // console.log(' - - - - - - - - - - - - - - - - - - ')
+    // console.log(err, value)
+    // console.log(' - - - - - - - - - - - - - - - - - - ')
     if (err) {
       db.put(request.payload.email, JSON.stringify(request.payload), function(err){
-        console.log(err);
+        // console.log(err);
       });
     }
     if(value) { // means the person has already registered!
