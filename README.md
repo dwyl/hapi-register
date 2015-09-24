@@ -41,11 +41,18 @@ can add, configure and use in your Hapi.js app in *minutes*.
 
 ### Install from NPM
 
-First install the plugin from `npm` and save it as a *dependency*:
+First install the `hapi-register` plugin
+(*and* [***Joi***](https://github.com/hapijs/joi))
+from `npm` and save as a *dependency*:
 
 ```sh
-npm install hapi-register --save
+npm install hapi-register joi --save
 ```
+
+> Note: You will use
+[**Joi**](https://github.com/nelsonic/learn-hapi#validation-with-joi)
+to specify the fields you want to allow/require
+for registration in your app/website.
 
 ### 1. Specify (*Both*) Your *Required* and *Optional* Fields
 
