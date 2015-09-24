@@ -138,8 +138,7 @@ and a more *detailed* custom registration handler with more fields
 
 For a ***fully functional*** example using the **hapi-register**
 plugin to power a site's registration see:
-https://github.com/nelsonic/hapi-register-example
-
+[hapi-register-***example***](https://github.com/nelsonic/hapi-register-example)
 
 # tl;dr
 
