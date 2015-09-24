@@ -1,6 +1,6 @@
 # hapi-register
 
-Simplifies (*email*) registration for your Hapi.js based web Application or API
+Simplifies (*email*) registration for your Hapi.js based Web Application/API
 
 [![Build Status](https://travis-ci.org/nelsonic/hapi-register.svg?branch=master)](https://travis-ci.org/nelsonic/hapi-register)
 [![Code Climate](https://codeclimate.com/github/nelsonic/hapi-register/badges/gpa.svg)](https://codeclimate.com/github/nelsonic/hapi-register)
@@ -54,7 +54,7 @@ npm install hapi-register joi --save
 to specify the fields you want to allow/require
 for registration in your app/website.
 
-### 1. Specify (*Both*) Your *Required* and *Optional* Fields
+### 1. Specify Your *Required* and *Optional* Fields
 
 In your code, define the fields you want people to register with.
 
@@ -64,7 +64,7 @@ var custom_fields = {
   email     : Joi.string().email().required(), // Required
   firstname : Joi.string()                     // Optional field
 }
-var opts = { fields: custom_fields };       // pass the options when registering the plugin
+var opts = { fields: custom_fields };       // set options when registering the plugin
 ```
 
 ### 2. Define your handler function
