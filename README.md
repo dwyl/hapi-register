@@ -96,7 +96,14 @@ function custom_handler(request, reply){
 // include the custom_handler in your otps object:
 opts.handler = custom_handler;
 ```
-> More examples:
+> More examples: https://github.com/nelsonic/hapi-register-example
+
+**Note**: if you want to define a custom `failAction` handler,
+simply add it to the options object as
+`opts.fail_action_handler = fail_handler`
+If you have *no idea* what a `failAction` handler is,
+*don't worry neither did we*,
+see: https://github.com/nelsonic/hapi-validation-question
 
 ### 3. Load the `hapi-register` plugin into your server
 
