@@ -8,8 +8,18 @@ var Hapi   = require('hapi');     // https://github.com/nelsonic/learn-hapi
 var server = new Hapi.Server({ debug: false })
 server.connection({ port: 8000 });
 
-// load the plugin WITHOUT any options (test defaults)
-server.register({ register: require('../lib')}, function (err) {
+var Joi = require('joi');
+var custom_fields = {
+  email     : Joi.string().email().required()
+}
+function email_handler (request, reply) {
+  console.log(request.payload)
+  reply('test passed');
+}
+var opts = { fields: custom_fields, handler: email_handler };
+
+// load the plugin
+server.register([{ register: require('../lib'), options:opts }], function (err) {
   if (err) { console.error('Failed to load plugin:', err); }
 });
 

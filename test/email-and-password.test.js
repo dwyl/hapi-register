@@ -15,7 +15,11 @@ var fields = {
   // firstname : Joi.string(),
   password  : Joi.string().required().min(6) // minimum length 6 characters
 }
-var opts   = {'test':'that', fields:fields};
+function handler (request, reply) {
+  console.log(request.payload)
+  reply('test passed');
+}
+var opts   = { fields:fields, handler:handler };
 
 // load the plugin with the specific fields we want to validate against
 server.register([{ register: require('../lib'), options:opts }], function (err) {
@@ -31,7 +35,7 @@ test(file+'Attempt to submit a registration without password', function(t){
   };
 
   server.inject(options, function(response) {
-    // console.log(response)
+    // joi returns 400 when auth validation fails.
     var code = response.statusCode
     t.equal(code, 400, 'Register without password fails -> '+code);
     server.stop(function(){ t.end() });
@@ -46,7 +50,7 @@ test(file+'Attempt to register with unrecognised field', function(t){
   };
 
   server.inject(options, function(response) {
-    // console.log(response)
+    // joi returns 400 when auth validation fails.
     var code = response.statusCode
     t.equal(code, 400, 'Register with unknown field fails -> '+code);
     server.stop(function(){ t.end() });

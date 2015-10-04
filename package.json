@@ -1,8 +1,8 @@
 {
   "name": "hapi-register",
-  "version": "1.0.6",
+  "version": "1.0.10",
   "description": "Registration plugin for hapi.js apps/apis",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "fast": "./node_modules/tape/bin/tape ./test/*.js",
     "test": "istanbul cover ./node_modules/tape/bin/tape ./test/*.js  | node_modules/tap-spec/bin/cmd.js"
@@ -27,11 +27,10 @@
     "boom": "^2.9.0",
     "hapi": "^10.0.0",
     "istanbul": "^0.3.20",
+    "joi": "^6.7.1",
     "level": "^1.3.0",
     "tap-spec": "^4.1.0",
     "tape": "^4.2.0"
   },
-  "dependencies": {
-    "joi": "^6.7.1"
-  }
+  "dependencies": { }
 }

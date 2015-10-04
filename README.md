@@ -1,24 +1,31 @@
 # hapi-register
 
+Simplifies (*email*) registration for your Hapi.js based Web Application/API
+
 [![Build Status](https://travis-ci.org/nelsonic/hapi-register.svg?branch=master)](https://travis-ci.org/nelsonic/hapi-register)
 [![Code Climate](https://codeclimate.com/github/nelsonic/hapi-register/badges/gpa.svg)](https://codeclimate.com/github/nelsonic/hapi-register)
 [![codecov.io](http://codecov.io/github/nelsonic/hapi-register/coverage.svg?branch=master)](http://codecov.io/github/nelsonic/hapi-register?branch=master)
 [![Dependency Status](https://david-dm.org/nelsonic/hapi-register.svg)](https://david-dm.org/nelsonic/hapi-register)
 [![devDependency Status](https://david-dm.org/nelsonic/hapi-register/dev-status.svg)](https://david-dm.org/nelsonic/hapi-register#info=devDependencies)
-[![HitCount](https://hitt.herokuapp.com/nelsonic/hapi-register.svg)](https://github.com/nelsonic/hapi-register)
 
-Simplify (*email*) registration for your Hapi.js based web Application or API
+[![HAPI 10.0.0](http://img.shields.io/badge/hapi-10.0.0-brightgreen.svg "Latest Hapi.js")](http://hapijs.com)
+[![Node.js Version](https://img.shields.io/node/v/hapi-auth-jwt2.svg?style=flat "Node.js 0.12 & 4.0 and io.js latest all supported")](http://nodejs.org/download/)
+[![npm](https://img.shields.io/npm/v/hapi-login.svg)](https://www.npmjs.com/package/hapi-login)
+[![bitHound Score](https://www.bithound.io/github/dwyl/hapi-auth-jwt2/badges/score.svg)](https://www.bithound.io/github/dwyl/hapi-auth-jwt2)
+[![HitCount](https://hitt.herokuapp.com/nelsonic/hapi-register.svg)](https://github.com/nelsonic/hapi-register)
+[![Join the chat at https://gitter.im/dwyl/chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dwyl/chat/?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 
 ## Why?
 
 *Many* people still prefer to use their email address when registering
 to use an app or service - as opposed to logging in with their Google (or other) account.
-This plugin/module helps *simplify* that process.
+This plugin/module *simplifies* the process of registering.
 
 #### Why use a Plugin for something *this* Simple?
 
-Simple answer is: We have tested it. Provide good examples and are committed
-to maintaining it so you don't have to think about it.
+Simple answer is: We have ***tested*** it. Provide good ***examples*** and are committed
+to ***maintaining*** it (*our production apps use it*...) so you don't have to *think* about it.
 
 Given that you have ***full control*** over what fields
 are accepted/required and how the request gets handled,
@@ -34,23 +41,30 @@ can add, configure and use in your Hapi.js app in *minutes*.
 
 ### Install from NPM
 
-First install the plugin from `npm` and save it as a *dependency*:
+First install the `hapi-register` plugin
+(*and* [***Joi***](https://github.com/hapijs/joi))
+from `npm` and save as a *dependency*:
 
 ```sh
-npm install hapi-register --save
+npm install hapi-register joi --save
 ```
 
-### 1. Specify Your *Required* Fields
+> Note: You will use
+[**Joi**](https://github.com/nelsonic/learn-hapi#validation-with-joi)
+to specify the fields you want to allow/require
+for registration in your app/website.
+
+### 1. Specify Your *Required* and *Optional* Fields
 
 In your code, define the fields you want people to register with.
 
 ```js
 var Joi = require('joi');
 var custom_fields = {
-  email     : Joi.string().email().required(),
-  firstname : Joi.string()
+  email     : Joi.string().email().required(), // Required
+  firstname : Joi.string()                     // Optional field
 }
-var opts = { fields: custom_fields };       // pass the options when registering the plugin
+var opts = { fields: custom_fields };       // set options when registering the plugin
 ```
 
 ### 2. Define your handler function
@@ -82,7 +96,14 @@ function custom_handler(request, reply){
 // include the custom_handler in your otps object:
 opts.handler = custom_handler;
 ```
-> More examples:
+> More examples: https://github.com/nelsonic/hapi-register-example
+
+**Note**: if you want to define a custom `failAction` handler,
+simply add it to the options object as
+`opts.fail_action_handler = fail_handler`
+If you have *no idea* what a `failAction` handler is,
+*don't worry neither did we*,
+see: https://github.com/nelsonic/hapi-validation-question
 
 ### 3. Load the `hapi-register` plugin into your server
 
@@ -100,6 +121,9 @@ server.start(function() {
   console.log('Now Visit: http://127.0.0.1:'+server.info.port);
 });
 ```
+
+Now a `/register` route is available in your app which
+accepts a `POST` request with the fields you defined above.
 
 ### Are we *there* yet?
 
@@ -121,8 +145,7 @@ and a more *detailed* custom registration handler with more fields
 
 For a ***fully functional*** example using the **hapi-register**
 plugin to power a site's registration see:
-https://github.com/nelsonic/hapi-register-example
-
+[hapi-register-***example***](https://github.com/nelsonic/hapi-register-example)
 
 # tl;dr
 
