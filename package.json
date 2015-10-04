@@ -1,6 +1,6 @@
 {
   "name": "hapi-register",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Registration plugin for hapi.js apps/apis",
   "main": "lib/index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nelsonic/hapi-register.git"
+    "url": "git+https://github.com/dwyl/hapi-register.git"
   },
   "keywords": [
     "registration",
@@ -20,9 +20,9 @@
   "author": "the usual suspects",
   "license": "GPL-2.0",
   "bugs": {
-    "url": "https://github.com/nelsonic/hapi-register/issues"
+    "url": "https://github.com/dwyl/hapi-register/issues"
   },
-  "homepage": "https://github.com/nelsonic/hapi-register#readme",
+  "homepage": "https://github.com/dwyl/hapi-register#readme",
   "devDependencies": {
     "boom": "^2.9.0",
     "hapi": "^10.0.0",
