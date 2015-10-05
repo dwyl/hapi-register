@@ -2,17 +2,17 @@
 
 Simplifies (*email*) registration for your Hapi.js based Web Application/API
 
-[![Build Status](https://travis-ci.org/nelsonic/hapi-register.svg?branch=master)](https://travis-ci.org/nelsonic/hapi-register)
-[![Code Climate](https://codeclimate.com/github/nelsonic/hapi-register/badges/gpa.svg)](https://codeclimate.com/github/nelsonic/hapi-register)
-[![codecov.io](http://codecov.io/github/nelsonic/hapi-register/coverage.svg?branch=master)](http://codecov.io/github/nelsonic/hapi-register?branch=master)
-[![Dependency Status](https://david-dm.org/nelsonic/hapi-register.svg)](https://david-dm.org/nelsonic/hapi-register)
-[![devDependency Status](https://david-dm.org/nelsonic/hapi-register/dev-status.svg)](https://david-dm.org/nelsonic/hapi-register#info=devDependencies)
+[![Build Status](https://travis-ci.org/dwyl/hapi-register.svg?branch=master)](https://travis-ci.org/dwyl/hapi-register)
+[![Code Climate](https://codeclimate.com/github/dwyl/hapi-register/badges/gpa.svg)](https://codeclimate.com/github/dwyl/hapi-register)
+[![codecov.io](http://codecov.io/github/dwyl/hapi-register/coverage.svg?branch=master)](http://codecov.io/github/dwyl/hapi-register?branch=master)
+[![Dependency Status](https://david-dm.org/dwyl/hapi-register.svg)](https://david-dm.org/dwyl/hapi-register)
+[![devDependency Status](https://david-dm.org/dwyl/hapi-register/dev-status.svg)](https://david-dm.org/dwyl/hapi-register#info=devDependencies)
 
 [![HAPI 10.0.0](http://img.shields.io/badge/hapi-10.0.0-brightgreen.svg "Latest Hapi.js")](http://hapijs.com)
 [![Node.js Version](https://img.shields.io/node/v/hapi-auth-jwt2.svg?style=flat "Node.js 0.12 & 4.0 and io.js latest all supported")](http://nodejs.org/download/)
 [![npm](https://img.shields.io/npm/v/hapi-login.svg)](https://www.npmjs.com/package/hapi-login)
 [![bitHound Score](https://www.bithound.io/github/dwyl/hapi-auth-jwt2/badges/score.svg)](https://www.bithound.io/github/dwyl/hapi-auth-jwt2)
-[![HitCount](https://hitt.herokuapp.com/nelsonic/hapi-register.svg)](https://github.com/nelsonic/hapi-register)
+[![HitCount](https://hitt.herokuapp.com/nelsonic/hapi-register.svg)](https://github.com/dwyl/hapi-register)
 [![Join the chat at https://gitter.im/dwyl/chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dwyl/chat/?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
@@ -96,7 +96,7 @@ function custom_handler(request, reply){
 // include the custom_handler in your otps object:
 opts.handler = custom_handler;
 ```
-> More examples: https://github.com/nelsonic/hapi-register-example
+> More examples: https://github.com/dwyl/hapi-register-example
 
 **Note**: if you want to define a custom `failAction` handler,
 simply add it to the options object as
@@ -138,14 +138,14 @@ we have prepared a few examples.
 
 The tests for this plugin show simple examples
 of both Register *interest* with *Just Email* Address - the ***lowest possible friction*** -
-( [test/email-only.test.js](https://github.com/nelsonic/hapi-register/blob/master/test/email-only.test.js) )
+( [test/email-only.test.js](https://github.com/dwyl/hapi-register/blob/master/test/email-only.test.js) )
 and a more *detailed* custom registration handler with more fields
-( [test/custom-handler-method.test.js](https://github.com/nelsonic/hapi-register/blob/master/test/custom-handler-method.test.js) )
+( [test/custom-handler-method.test.js](https://github.com/dwyl/hapi-register/blob/master/test/custom-handler-method.test.js) )
 
 
 For a ***fully functional*** example using the **hapi-register**
 plugin to power a site's registration see:
-[hapi-register-***example***](https://github.com/nelsonic/hapi-register-example)
+[hapi-register-***example***](https://github.com/dwyl/hapi-register-example)
 
 # tl;dr
 
