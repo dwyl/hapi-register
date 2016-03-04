@@ -1,6 +1,6 @@
 {
   "name": "hapi-register",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Registration plugin for hapi.js apps/apis",
   "main": "lib/index.js",
   "scripts": {
@@ -24,13 +24,13 @@
   },
   "homepage": "https://github.com/dwyl/hapi-register#readme",
   "devDependencies": {
-    "boom": "^3.0.0",
-    "hapi": "^11.1.0",
-    "istanbul": "^0.4.0",
-    "joi": "^6.7.1",
-    "level": "^1.3.0",
-    "tap-spec": "^4.1.0",
-    "tape": "^4.2.2"
+    "boom": "^3.1.2",
+    "hapi": "^13.0.0",
+    "istanbul": "^0.4.2",
+    "joi": "^8.0.4",
+    "level": "^1.4.0",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.4.0"
   },
   "dependencies": {}
 }

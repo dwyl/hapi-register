@@ -8,9 +8,9 @@ Simplifies (*email*) registration for your Hapi.js based Web Application/API
 [![Dependency Status](https://david-dm.org/dwyl/hapi-register.svg)](https://david-dm.org/dwyl/hapi-register)
 [![devDependency Status](https://david-dm.org/dwyl/hapi-register/dev-status.svg)](https://david-dm.org/dwyl/hapi-register#info=devDependencies)
 
-[![HAPI 10.0.0](http://img.shields.io/badge/hapi-10.0.0-brightgreen.svg "Latest Hapi.js")](http://hapijs.com)
+[![HAPI 13.0.0](http://img.shields.io/badge/hapi-13.0.0-brightgreen.svg "Latest Hapi.js")](http://hapijs.com)
 [![Node.js Version](https://img.shields.io/node/v/hapi-auth-jwt2.svg?style=flat "Node.js 0.12 & 4.0 and io.js latest all supported")](http://nodejs.org/download/)
-[![npm](https://img.shields.io/npm/v/hapi-login.svg)](https://www.npmjs.com/package/hapi-login)
+[![npm](https://img.shields.io/npm/v/hapi-register.svg)](https://www.npmjs.com/package/hapi-register)
 [![bitHound Score](https://www.bithound.io/github/dwyl/hapi-auth-jwt2/badges/score.svg)](https://www.bithound.io/github/dwyl/hapi-auth-jwt2)
 [![HitCount](https://hitt.herokuapp.com/nelsonic/hapi-register.svg)](https://github.com/dwyl/hapi-register)
 [![Join the chat at https://gitter.im/dwyl/chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dwyl/chat/?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
