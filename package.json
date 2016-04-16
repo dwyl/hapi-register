@@ -1,6 +1,6 @@
 {
   "name": "hapi-register",
-  "version": "1.0.14",
+  "version": "1.1.0",
   "description": "Registration plugin for hapi.js apps/apis",
   "main": "lib/index.js",
   "scripts": {
