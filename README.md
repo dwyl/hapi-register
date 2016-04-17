@@ -96,6 +96,20 @@ function custom_handler(request, reply){
 // include the custom_handler in your otps object:
 opts.handler = custom_handler;
 ```
+
+##### Custom Login Path
+- `loginPath` - (*optional*) an optional login path String, defaults to `/login` but can assigned any valid path.
+
+add it to your options object:
+
+```js
+var options = {
+  fields: fields,
+  handler: handler,
+  loginPath: "/api/login"
+}
+```
+
 > More examples: https://github.com/dwyl/hapi-register-example
 
 **Note**: if you want to define a custom `failAction` handler,
